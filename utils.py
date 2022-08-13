@@ -18,43 +18,17 @@ from sklearn.cluster import SpectralClustering
 
 def parameter_setting():
     
-    parser = argparse.ArgumentParser(description='Single cell Multi-omics data analysis')
-    
-    outPath = '/new_test/'
-    
-    parser.add_argument('--File1', '-F1', type=str, default = 'scRNA_seq_SNARE.tsv',    help='input file name1')
-    parser.add_argument('--File2', '-F2', type=str, default = 'scATAC_seq_SNARE.txt', help='input file name2')
-    parser.add_argument('--File2_1', '-F2_1', type=str, default = 'scATAC_seq_SNARE.txt', help='input file name2_1')
-
-    parser.add_argument('--File3', '-F3', type=str, default = '5-cellinfo-RNA.tsv',  help='input meta file')
-    parser.add_argument('--File_combine', '-F_com', type=str, default = 'Gene_chromatin_order_combine.tsv',    help='input combine file name')
-    
-    parser.add_argument('--workdir', '-wk', type=str, default = outPath, help='work path')
-    parser.add_argument('--outdir', '-od', type=str, default = outPath, help='Output path')
-    
-    parser.add_argument('--lr1', type=float, default = 0.01, help='Learning rate1')
-    parser.add_argument('--flr1', type=float, default = 0.001, help='Final learning rate1')
-    parser.add_argument('--lr2', type=float, default = 0.002, help='Learning rate2')
-    parser.add_argument('--flr2', type=float, default = 0.0002, help='Final learning rate2')
-    parser.add_argument('--weight_decay', type=float, default = 1e-6, help='weight decay')
-    parser.add_argument('--eps', type=float, default = 0.01, help='eps')
-
-    parser.add_argument('--sf1', type=float, default = 2.0, help='scale_factor_1 for supervision signal from scRNA-seq')
-    parser.add_argument('--sf2', type=float, default = 1.0, help='scale_factor_2 for supervision signal from scEpigenomics')
-    parser.add_argument('--cluster1', '-clu1', type=int, default=2, help='predefined cluster for scRNA')
-    parser.add_argument('--cluster2', '-clu2', type=int, default=2, help='predefined cluster for other epigenomics')
-    parser.add_argument('--geneClu', '-gClu', type=list, default = None, help='predefined gene cluster for scRNA')
-    
-    # parser.add_argument('--batch_size', '-b', type=int, default=64, help='Batch size')
-    parser.add_argument('--use_cuda', dest='use_cuda', default=True, action='store_true', help=" whether use cuda(default: True)")
-    
-    parser.add_argument('--seed', type=int, default=200, help='Random seed for repeat results')
-    parser.add_argument('--latent', '-l',type=int, default=10, help='latent layer dim')
-    parser.add_argument('--max_epoch', '-me', type=int, default=500, help='Max epoches')
-    parser.add_argument('--max_iteration', '-mi', type=int, default=3000, help='Max iteration')
-    parser.add_argument('--anneal_epoch', '-ae', type=int, default=200, help='Anneal epoch')
-    parser.add_argument('--epoch_per_test', '-ept', type=int, default=10, help='Epoch per test')
-    parser.add_argument('--max_ARI', '-ma', type=int, default=-200, help='initial ARI')
+    parser = argparse.ArgumentParser(description='train')
+    parser.add_argument("--dataname", default = "Qs_Limb_Muscle", type = str)
+    parser.add_argument("--highly_genes", default = "2000", type = int)
+    parser.add_argument("--lr", default = "5e-5", type = float)
+    parser.add_argument("--lr1", default = "1e-8", type = float)
+    parser.add_argument("--epochs", default = "250", type = int)
+    parser.add_argument("--sigma", default = "0.1", type = float)
+    parser.add_argument("--n1", default = "24", type = int)
+    parser.add_argument("--n2", default = "128", type = int)
+    parser.add_argument("--n3", default = "1024", type = int)
+    parser.add_argument("--model_file", default = "/home//data/test16.pth.tar", type = str)
     
     return parser
 

@@ -106,19 +106,8 @@ def alt_train(model, args, X, y, A_norm):
 
 def train_with_args(args):
   print(torch.__version__)
-  args.highly_genes = 2000 
-  args.lr = 5e-5
-  args.lr1 = 1e-8
-  args.epochs = 250
-  args.sigma = 0.1 #0.7
-  args.n1 = 24 #32
-  args.n2 = 128
-  args.n3 = 1024
-  args.workdir    =  './Example_test/'
-  args.path     =  './data/'
-  args.model_file      = '/home//data/test16.pth.tar'
   
-  x, y = prepro('/home//data/Qx_Limb_Muscle/data.h5')
+  x, y = prepro('/home//data/'+args.dataname+'/data.h5')
   #x = np.array(pd.read_csv('/home//data/camp1/camp1.csv', header=None))
   #y = np.array(pd.read_csv('/home//data/camp1/camp1label.csv', header=None))
   x = np.ceil(x).astype(np.int)
