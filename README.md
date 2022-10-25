@@ -7,3 +7,5 @@ Cell clustering is a critical step in analyzing single-cell RNA sequencing (scRN
 ### usage
 ##### You can run the scDEFR from the command line:
         python sigmatrain.py --dataname Qs_Limb_Muscle
+### reproduct results
+##### You can find the pretrained model parameters of the Qs_Limb_Muscle in the release.
